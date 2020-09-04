@@ -7,27 +7,44 @@ import javax.persistence.*;
 public class Recipe {
 
     @Id
+    @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
+
+    @Column(name = "name")
     private String name;
+
+    @Column(name = "time")
     private String time;
+
+    @Column(name = "ingredients")
     private String ingredients;
-    private String cookPlan;
+
+    @Column(name = "steps")
+    private String steps;
+
+    @Column(name = "kcal")
     private int kcal;
+
+    @Column(name = "fat")
     private int fat;
+
+    @Column(name = "sugars")
     private int sugars;
+
+    @Column(name = "email")
     private String email;
 
     public Recipe() {
     }
 
-    public Recipe(String name, String time, String ingredients, String cookPlan,
+    public Recipe(String name, String time, String ingredients, String steps,
                   int kcal, int fat, int sugars, String email) {
 
         this.name = name;
         this.time = time;
         this.ingredients = ingredients;
-        this.cookPlan = cookPlan;
+        this.steps = steps;
         this.kcal = kcal;
         this.fat = fat;
         this.sugars = sugars;
@@ -66,12 +83,12 @@ public class Recipe {
         this.ingredients = ingredients;
     }
 
-    public String getCookPlan() {
-        return cookPlan;
+    public String getSteps() {
+        return steps;
     }
 
-    public void setCookPlan(String cookPlan) {
-        this.cookPlan = cookPlan;
+    public void setSteps(String steps) {
+        this.steps = steps;
     }
 
     public int getKcal() {
