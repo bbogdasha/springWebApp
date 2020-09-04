@@ -11,36 +11,24 @@ public class Recipe {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
 
-    @Column(name = "name")
     private String name;
-
-    @Column(name = "time")
     private String time;
-
-    @Column(name = "ingredients")
     private String ingredients;
-
-    @Column(name = "steps")
     private String steps;
-
-    @Column(name = "kcal")
     private int kcal;
-
-    @Column(name = "fat")
     private int fat;
-
-    @Column(name = "sugars")
     private int sugars;
-
-    @Column(name = "email")
     private String email;
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "user_id")
+    private User author;
 
     public Recipe() {
     }
 
     public Recipe(String name, String time, String ingredients, String steps,
-                  int kcal, int fat, int sugars, String email) {
-
+                  int kcal, int fat, int sugars, String email, User author) {
         this.name = name;
         this.time = time;
         this.ingredients = ingredients;
@@ -49,6 +37,11 @@ public class Recipe {
         this.fat = fat;
         this.sugars = sugars;
         this.email = email;
+        this.author = author;
+    }
+
+    public String getAuthorName() {
+        return author != null ? author.getUsername() : "<none>";
     }
 
     public Integer getId() {
@@ -121,5 +114,13 @@ public class Recipe {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public User getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(User author) {
+        this.author = author;
     }
 }
