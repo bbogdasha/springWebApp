@@ -40,6 +40,7 @@
             </table>
             <input type="hidden" name="_csrf" value="${_csrf.token}" />
             <div><button type="submit">Create new recipe</button></div>
-        </form>
-    </div><br>
+        </form></br>
+        <a href="/recipes">Recipes list</a>
+    </div>
 </@c.page>

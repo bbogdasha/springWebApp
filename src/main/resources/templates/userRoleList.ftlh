@@ -15,5 +15,6 @@
                 <td><a href="/user/${user.id}">edit</a></td>
             </tr>
         </#list>
-    </table>
+    </table></br>
+    <a href="/recipes">Recipes list</a>
 </@c.page>

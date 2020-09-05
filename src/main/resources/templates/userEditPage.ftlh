@@ -12,5 +12,6 @@
         <input type="hidden" value="${user.id}" name="userId">
         <input type="hidden" value="${_csrf.token}" name="_csrf">
         <button type="submit">Save</button>
-    </form>
+    </form></br>
+    <a href="/user">User role list</a>
 </@c.page>
