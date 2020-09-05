@@ -1,0 +1,45 @@
+<#import "macros/common.ftlh" as c>
+
+<@c.page>
+    <h3>Create recipe:</h3>
+    <div>
+        <form action="/createRecipe" method="post" name="recipe">
+            <table>
+                <tr>
+                    <td>Recipe name: </td>
+                    <td><input type="text" name="name" placeholder="Caesar" autocomplete="off"></td>
+                </tr>
+                <tr>
+                    <td>Cooking time: </td>
+                    <td><input type="text" name="time" placeholder="10 min" autocomplete="off"></td>
+                </tr>
+                <tr>
+                    <td>Ingredients: </td>
+                    <td><textarea name="ingredients" placeholder="Some products" autocomplete="off"></textarea>></td>
+                </tr>
+                <tr>
+                    <td>Cook plan: </td>
+                    <td><textarea name="steps" placeholder="Steps" autocomplete="off"></textarea>></td>
+                </tr>
+                <tr>
+                    <td>Calories: </td>
+                    <td><input type="number" name="kcal" placeholder="630" autocomplete="off"></td>
+                </tr>
+                <tr>
+                    <td>Fat: </td>
+                    <td><input type="number" name="fat" placeholder="30" autocomplete="off"></td>
+                </tr>
+                <tr>
+                    <td>Sugars: </td>
+                    <td><input type="number" name="sugars" placeholder="15" autocomplete="off"></td>
+                </tr>
+                <tr>
+                    <td>Email: </td>
+                    <td><input type="email" name="email" placeholder="some@email.com" autocomplete="off"></td>
+                </tr>
+            </table>
+            <input type="hidden" name="_csrf" value="${_csrf.token}" />
+            <div><button type="submit">Create new recipe</button></div>
+        </form>
+    </div><br>
+</@c.page>

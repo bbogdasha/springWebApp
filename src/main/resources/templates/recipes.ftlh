@@ -1,3 +1,5 @@
+<#import "macros/login.ftlh" as l>
+
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -33,28 +35,25 @@
     </style>
 </head>
 <body>
-    <form action="/logout" method="post">
-        <input type="hidden" name="_csrf" value="{{_csrf.token}}"/>
-        <input type="submit" value="Sign Out"/>
-    </form>
-
+    <@l.logout /></br>
+    <a href="/user">User list</a>
     <div class="main">
         <a href="/createRecipe">Create new recipe</a><br>
 
         <h3>Recipes list:</h3>
         <div class="container">
-            {{#recipes}}
+            <#list recipes as recipe>
                 <div class="box">
                     <div class="box_picture">
                         Picture
                     </div>
                     <div class="box_name">
-                        <span>Recipe name: {{name}}</span>
-                        <span>Cooking time: {{time}}</span>
-                        <span>Author: {{authorName}}</span>
+                        <span>Recipe name: ${recipe.name}</span>
+                        <span>Cooking time: ${recipe.time}</span>
+                        <span>Author: ${recipe.authorName}</span>
                     </div>
                 </div>
-            {{/recipes}}
+            </#list>
         </div>
     </div>
 </body>

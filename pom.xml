@@ -34,9 +34,10 @@
         <!-- Web template -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-mustache</artifactId>
+            <artifactId>spring-boot-starter-freemarker</artifactId>
             <version>2.3.3.RELEASE</version>
         </dependency>
+
 
         <!-- Database -->
         <dependency>
