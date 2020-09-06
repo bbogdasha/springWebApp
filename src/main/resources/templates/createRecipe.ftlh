@@ -3,7 +3,7 @@
 <@c.page>
     <h3>Create recipe:</h3>
     <div>
-        <form action="/createRecipe" method="post" name="recipe">
+        <form action="/createRecipe" method="post" name="recipe" enctype="multipart/form-data">
             <table>
                 <tr>
                     <td>Recipe name: </td>
@@ -36,6 +36,10 @@
                 <tr>
                     <td>Email: </td>
                     <td><input type="email" name="email" placeholder="some@email.com" autocomplete="off"></td>
+                </tr>
+                <tr>
+                    <td>Picture: </td>
+                    <td><input type="file" name="file"></td>
                 </tr>
             </table>
             <input type="hidden" name="_csrf" value="${_csrf.token}" />

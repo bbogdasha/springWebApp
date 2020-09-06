@@ -4,6 +4,6 @@
 <@c.page>
     <h3>Registration new user:</h3>
     <@l.login "/registration" />
-    ${message!""}
+    ${message?ifExists}
     <a href="/recipes">Recipes list</a>
 </@c.page>

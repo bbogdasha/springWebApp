@@ -4,48 +4,35 @@
 <html>
 <head>
     <title>Recipes list</title>
-    <style type="text/css">
-        .main {
-            max-width: 1140px;
-            margin-right: auto;
-            margin-left: auto;
-
-        }
-        .container {
-            background: #bbb;
-	        display: flex;
-	        flex-wrap: wrap;
-	        justify-content: space-between;
-        }
-        .box {
-            width: 32%;
-            height: 400px;
-            margin: 1% 0 1% 0;
-        }
-        .box_picture {
-            width: 100%;
-            height: 300px;
-            background: blue;
-        }
-        .box_name {
-            width: 100%;
-            height: 100px;
-            background: red;
-        }
-    </style>
+    <link rel="stylesheet" href="/static/styles/recipes.css">
 </head>
 <body>
+    <header class="main-header">
+        <div class="account-header">
+            <a href="/login">Sign in</a> / <a href="/registration">Register</a>
+        </div>
+        <div class="logo-header">
+            LOGO
+        </div>
+        <div class="menu-header">
+            <ul>
+                <li><a href="/greeting">Home</a></li>
+                <li><a href="/recipes">Recipes</a></li>
+                <li><a href="/createRecipe">Create new recipe</a></li>
+            </ul>
+        </div>
+    </header>
     <@l.logout /></br>
     <a href="/user">User list</a>
-    <div class="main">
-        <a href="/createRecipe">Create new recipe</a><br>
-
+    <div class="content">
         <h3>Recipes list:</h3>
         <div class="container">
             <#list recipes as recipe>
                 <div class="box">
                     <div class="box_picture">
-                        Picture
+                        <#if recipe.filename??>
+                            <img src="/img/${recipe.filename}">
+                        </#if>
                     </div>
                     <div class="box_name">
                         <span>Recipe name: ${recipe.name}</span>
