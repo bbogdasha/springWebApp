@@ -5,25 +5,39 @@
 <head>
     <title>Recipes list</title>
     <link rel="stylesheet" href="/static/styles/recipes.css">
+    <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="/static/js/script.js"></script>
 </head>
 <body>
-    <header class="main-header">
-        <div class="account-header">
-            <a href="/login">Sign in</a> / <a href="/registration">Register</a>
+    <div class="header-account">
+        <div class="header-account-content content">
+            <div class="hidden-logo">
+                <a href="/recipes"><img src="/static/img/logo.png" alt="Logo"></a>
+            </div>
+            <div class="header-account-content-log" id="myHeader">
+                <a href="/login">Sign in</a><span>/</span> <a href="/registration">Register</a>
+            </div>
         </div>
-        <div class="logo-header">
-            LOGO
+    </div>
+    <div class="header-logo">
+        <div class="header-logo-content content">
+            <div class="header-logo-content-img">
+                <a href="/recipes"><img src="/static/img/logo.png" alt="Logo"></a>
+            </div>
         </div>
-        <div class="menu-header">
+    </div>
+    <div class="header-menu">
+        <div class="header-menu-content content">
             <ul>
                 <li><a href="/greeting">Home</a></li>
                 <li><a href="/recipes">Recipes</a></li>
                 <li><a href="/createRecipe">Create new recipe</a></li>
+                <li><a href="/user">User list</a></li>
             </ul>
         </div>
-    </header>
-    <@l.logout /></br>
-    <a href="/user">User list</a>
+    </div>
+
+
     <div class="content">
         <h3>Recipes list:</h3>
         <div class="container">
@@ -43,5 +57,6 @@
             </#list>
         </div>
     </div>
+    <@l.logout />
 </body>
 </html>
