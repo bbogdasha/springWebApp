@@ -218,7 +218,8 @@ a, p {
     margin-bottom: 5px;
 }
 .box-info-time > p,
-.box-info-author > p {
+.box-info-author > p,
+.box-info-name {
     cursor: default;
 }
 .box-info-time > img,

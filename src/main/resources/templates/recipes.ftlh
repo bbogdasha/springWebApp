@@ -53,10 +53,10 @@
                     <div class="box-info">
                         <p class="box-info-name">${recipe.name}</p>
                         <div class="box-info-time">
-                            <img src="/static/img/time.png"><p>${recipe.time}</p>
+                            <img src="/static/img/time.png"><p>:&nbsp;${recipe.time}</p>
                         </div>
                         <div class="box-info-author">
-                            <img src="/static/img/author.png"><p>${recipe.authorName}</p>
+                            <img src="/static/img/author.png"><p>:&nbsp;${recipe.authorName}</p>
                         </div>
                     </div>
                 </div>
