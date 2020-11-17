@@ -2,9 +2,11 @@ package com.bogdan.repo;
 
 import com.bogdan.domain.Recipe;
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+@Repository
 public interface RecipeRepo extends CrudRepository<Recipe, Long> {
 
     Recipe getRecipeById(int id);

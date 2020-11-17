@@ -16,18 +16,13 @@ import java.util.Map;
 import java.util.UUID;
 
 @Controller
-public class MainController {
+public class RecipeController {
 
     @Autowired
     private RecipeRepo recipeRepo;
 
     @Value("${upload.path}")
     private String uploadPath;
-
-    @GetMapping("/")
-    public String greeting() {
-        return "greeting";
-    }
 
     @GetMapping("/recipes")
     public String recipes(Map<String, Object> model) {
