@@ -5,11 +5,14 @@ import com.bogdan.domain.User;
 import com.bogdan.repo.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.Collections;
-import java.util.Map;
 
 @Controller
 public class RegistrationController {
@@ -18,16 +21,21 @@ public class RegistrationController {
     private UserRepo userRepo;
 
     @GetMapping("/registration")
-    public String registrationPage() {
+    public String registrationPage(Model model) {
+        model.addAttribute("user", new User());
         return "registration";
     }
 
     @PostMapping("/registration")
-    public String registrationUserPage(User user, Map<String, Object> model) {
+    public String registrationUserPage(Model model,
+                                       @Validated @ModelAttribute("user") User user,
+                                       BindingResult result) {
         User userFromDb = userRepo.findByUsername(user.getUsername());
-
+        if (result.hasErrors()) {
+            return "registration";
+        }
         if (userFromDb != null) {
-            model.put("message", "User with this name already exists!");
+            model.addAttribute("message", "User with this name already exists!");
             return "registration";
         }
 

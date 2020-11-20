@@ -41,7 +41,7 @@ input {
 
 .content {
     text-align: center;
-    max-width: 600px;
+    max-width: 100%;
     padding: 25px;
     display: -webkit-box;
     display: -webkit-flex;
@@ -65,7 +65,7 @@ input {
     flex-flow: column;
     box-shadow: 0px 15px 50px 10px rgba(0, 0, 0, 0.2);
     box-sizing: border-box;
-    height: 600px;
+    height: auto;
     width: 400px;
     background: #fff;
 }
@@ -75,7 +75,7 @@ input {
     background: linear-gradient(#d7ad9d, #f7e8e3);
     opacity: 0.85;
     filter: alpha(opacity=85);
-    height: 600px;
+    height: 100%;
     position: absolute;
     width: 400px;
     z-index: 1;
@@ -179,8 +179,15 @@ button:focus {
 
 .error {
     vertical-align: middle;
-    height: 40px;
     line-height: 40px;
     font-size: 20px;
     color: #791f06;
+}
+
+.login-create {
+    margin-top: 15px;
+}
+
+.login-create > a {
+    text-decoration: underline;
 }

@@ -1,0 +1,34 @@
+<div xmlns:th="https://www.thymeleaf.org">
+    <div th:fragment="footerField">
+        <footer class="footer">
+            <div class="footer-logo">
+                <div class="footer-logo-content content">
+                    <div class="footer-logo-content-img">
+                        <a th:href="@{/recipes}"><img src="/static/img/logo.png" alt="Logo"></a>
+                    </div>
+                    <div class="footer-logo-content-icons">
+                        <ul>
+                            <li><a th:href="@{#}"><img src="/static/img/instagram.png" /></a></li>
+                            <li><a th:href="@{#}"><img src="/static/img/twitter.png" /></a></li>
+                            <li><a th:href="@{#}"><img src="/static/img/telegram.png" /></a></li>
+                            <li><a th:href="@{#}"><img src="/static/img/google.png" /></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-menu">
+                <div class="footer-menu-content content">
+                    <ul>
+                        <li><a th:href="@{/greeting}">Home</a></li>
+                        <li><a th:href="@{/recipes}">Recipes</a></li>
+                        <li><a th:href="@{/createRecipe}">Create new recipe</a></li>
+                        <li><a th:href="@{/user}">User list</a></li>
+                    </ul>
+                    <div class="footer-menu-author content">
+                        <p>Site created by <a th:href="@{https://github.com/bbogdasha}">Bogdan</a> for educational purposes in 2020 year</p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+</div>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Recipe List</title>
+    <link rel="stylesheet" href="/static/styles/header.css">
+    <link rel="stylesheet" href="/static/styles/footer.css">
+    <link rel="stylesheet" href="/static/styles/recipes.css">
+    <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="/static/js/script.js"></script>
+</head>
+<body>
+    <div th:replace="/macros/header.html"></div>
+        <div class="body-part content">
+            <div class="body-part-title"><p>Recipes list:</p></div>
+            <div class="body-part-container">
+                <div class="box" th:each="recipe : ${recipes}">
+                    <div class="box-picture">
+                        <a th:if= "${recipe.filename != null}" th:href="@{/user}">
+                            <img th:src="@{|/img/${recipe.filename}|}"/>
+                        </a>
+                    </div>
+                    <div class="box-info">
+                        <p class="box-info-name" th:text="${recipe.name}"></p>
+                        <div class="box-info-time">
+                            <img src="/static/img/time.png"><p>-&nbsp;</p><span th:text="${recipe.time}"></span>
+                        </div>
+                        <div class="box-info-author">
+                            <img src="/static/img/author.png"><p>-&nbsp;</p><span th:text="${recipe.authorName}"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <div th:replace="/macros/footer.html"></div>
+</body>
+</html>

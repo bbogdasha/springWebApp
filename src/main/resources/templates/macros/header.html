@@ -1,0 +1,40 @@
+<div xmlns:th="https://www.thymeleaf.org"
+     xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <div class="header-account">
+                    <div class="header-account-content content">
+                        <div class="hidden-logo">
+                            <a th:href="@{/recipes}"><img src="/static/img/logo.png" alt="Logo"></a>
+                        </div>
+                        <div class="header-account-content-log" id="myHeader">
+                            <a th:href="@{/login}" sec:authorize="isAnonymous()">Log in</a>
+                            <form th:action="@{/logout}" sec:authorize="isAuthenticated()" method="post"><input class="logout" type="submit" value="Log out"/></form>
+                            <span>|</span>
+                            <a th:href="@{/registration}" sec:authorize="isAnonymous()">Register</a>
+                            <a th:href="@{/#}" sec:authorize="isAuthenticated()" sec:authentication="name"></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="header-logo">
+                    <div class="header-logo-content content">
+                        <div class="header-logo-content-img">
+                            <a th:href="@{/recipes}"><img src="/static/img/logo.png" alt="Logo"></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="header-menu">
+                    <div class="header-menu-content content">
+                        <ul>
+                            <li><a th:href="@{/greeting}">Home</a></li>
+                            <li><a th:href="@{/recipes}">Recipes</a></li>
+                            <li><a th:href="@{/createRecipe}">Create new recipe</a></li>
+                            <li><a th:href="@{/user}">User list</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+</div>

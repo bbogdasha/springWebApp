@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Registration Page</title>
+    <link rel="stylesheet" href="/static/styles/registration.css">
+</head>
+<body>
+    <div class="container">
+        <div class="window">
+            <div class="overlay"></div>
+            <div class="content">
+                <div class="logo"><img src="/static/img/logo.png" alt="Logo"></div>
+                <div class="title">Registration</div>
+                <div class="text">If you want to create and upload your recipes to the site, you need to create an account:</div>
+                <div class="form">
+                    <form th:action="@{/registration}" th:object="${user}" method="post">
+                        <div class="input-field">
+                            <input class="input-line" placeholder="Username" type="text" autocomplete="off" th:field="*{username}" />
+                            <small th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></small>
+                            <input class="input-line" placeholder="Password" type="password" th:field="*{password}" />
+                            <small th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></small>
+                            <div class="error" th:text="${message}"></div>
+                            <div><input class="button-reg" type="submit" value="Register"/></div>
+                        </div>
+                    </form>
+                </div>
+                <div><a th:href="@{/recipes}"><button class="button-back">Back</button></a></div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

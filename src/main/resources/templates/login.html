@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="/static/styles/registration.css">
+</head>
+<body>
+    <div class="container">
+        <div class="window">
+            <div class="overlay"></div>
+            <div class="content">
+                <div class="logo"><img src="/static/img/logo.png" alt="Logo"></div>
+                <div class="title">Login</div>
+                <div class="text">Login to view your recipe list and create new ones:</div>
+                <div class="form">
+                    <form th:action="@{/login}" th:object="${user}" method="post">
+                        <div class="input-field">
+                            <input class="input-line" placeholder="Username" type="text" autocomplete="off" name="username" required/>
+                            <input class="input-line" placeholder="Password" type="password" name="password" required/>
+                            <div class="error" th:if="${param.error}">Invalid username and password.</div>
+                            <div><input class="button-reg" type="submit" value="Log In"/></div>
+                        </div>
+                    </form>
+                </div>
+                <div><a th:href="@{/recipes}"><button class="button-back">Back</button></a></div>
+                <div class="login-create">Don't have an account? You can create it <a th:href="@{/registration}">here</a>.</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

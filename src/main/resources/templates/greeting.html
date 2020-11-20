@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Greeting Page</title>
+    <link rel="stylesheet" href="/static/styles/header.css">
+    <link rel="stylesheet" href="/static/styles/footer.css">
+    <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="/static/js/script.js"></script>
+</head>
+<body>
+    <div th:replace="/macros/header.html"></div>
+    <h3>Spring Cook Web</h3><br>
+    <a href="/recipes">Recipes list</a>
+    <div th:replace="/macros/footer.html"></div>
+</body>
+</html>

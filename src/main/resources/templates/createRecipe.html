@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create Recipe</title>
+    <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="/static/js/script.js"></script>
+</head>
+<body>
+    <div th:replace="/macros/header.html"></div>
+    <h3>Create recipe:</h3>
+        <div>
+            <form th:action="@{/createRecipe}" method="post" name="recipe" enctype="multipart/form-data">
+                <table>
+                    <tr>
+                        <td>Recipe name: </td>
+                        <td><input type="text" name="name" placeholder="Caesar" autocomplete="off"></td>
+                    </tr>
+                    <tr>
+                        <td>Cooking time: </td>
+                        <td><input type="text" name="time" placeholder="10 min" autocomplete="off"></td>
+                    </tr>
+                    <tr>
+                        <td>Ingredients: </td>
+                        <td><textarea name="ingredients" placeholder="Some products" autocomplete="off"></textarea>></td>
+                    </tr>
+                    <tr>
+                        <td>Cook plan: </td>
+                        <td><textarea name="steps" placeholder="Steps" autocomplete="off"></textarea>></td>
+                    </tr>
+                    <tr>
+                        <td>Calories: </td>
+                        <td><input type="number" name="kcal" placeholder="630" autocomplete="off"></td>
+                    </tr>
+                    <tr>
+                        <td>Fat: </td>
+                        <td><input type="number" name="fat" placeholder="30" autocomplete="off"></td>
+                    </tr>
+                    <tr>
+                        <td>Sugars: </td>
+                        <td><input type="number" name="sugars" placeholder="15" autocomplete="off"></td>
+                    </tr>
+                    <tr>
+                        <td>Email: </td>
+                        <td><input type="email" name="email" placeholder="some@email.com" autocomplete="off"></td>
+                    </tr>
+                    <tr>
+                        <td>Picture: </td>
+                        <td><input type="file" name="file"></td>
+                    </tr>
+                </table>
+                <div><button type="submit">Create new recipe</button></div>
+            </form></br>
+            <a th:href="@{/recipes}">Recipes list</a>
+        </div>
+    <div th:replace="/macros/footer.html"></div>
+</body>
+</html>
