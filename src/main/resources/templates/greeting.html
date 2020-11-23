@@ -5,13 +5,41 @@
     <title>Greeting Page</title>
     <link rel="stylesheet" href="/static/styles/header.css">
     <link rel="stylesheet" href="/static/styles/footer.css">
+    <link rel="stylesheet" href="/static/styles/greeting.css">
     <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
     <script src="/static/js/script.js"></script>
 </head>
 <body>
     <div th:replace="/macros/header.html"></div>
-    <h3>Spring Cook Web</h3><br>
-    <a href="/recipes">Recipes list</a>
+        <div class="body-part content">
+            <div class="body-part-container">
+                <div class="body-part-block">
+                    <div class="body-part-block-img"><img src="/static/img/greeting/1.jpg"/></div>
+                    <div class="body-part-block-img"><img src="/static/img/greeting/2.jpg"/></div>
+                    <div class="body-part-block-img"><img src="/static/img/greeting/3.jpg"/></div>
+                </div>
+                <div class="body-part-block">
+                    <div class="body-part-block-info">
+                        <h1 style="cursor: text;">Welcome!</h1>
+                        <p style="cursor: text;">
+                            Here you can find many different recipes for different dishes with detailed descriptions and
+                            preparation process. You can also register to be able to create your own recipes for your
+                            culinary masterpiece and share with other chefs. Discover new recipes, try and experiment
+                            with Bon Appetite!
+                        </p>
+                        <div class="body-part-block-buttons">
+                            <div class="body-part-block-but"><a th:href="@{/recipes}"><button class="button">Recipe List</button></a></div>
+                            <div class="body-part-block-but"><a th:href="@{/registration}"><button class="button">Registration</button></a></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="body-part-block">
+                    <div class="body-part-block-img"><img src="/static/img/greeting/4.jpg"/></div>
+                    <div class="body-part-block-img"><img src="/static/img/greeting/5.jpg"/></div>
+                    <div class="body-part-block-img"><img src="/static/img/greeting/6.jpg"/></div>
+                </div>
+            </div>
+        </div>
     <div th:replace="/macros/footer.html"></div>
 </body>
 </html>

@@ -39,6 +39,7 @@ a, p {
 }
 .box {
     width: 32%;
+    height: 100%;
     margin: 1% 0 1% 0;
 }
 .box-picture {
@@ -71,6 +72,7 @@ a, p {
 .box-info-author {
     display: flex;
     margin-bottom: 5px;
+    line-height: 26px;
 }
 .box-info-time > p,
 .box-info-author > p,

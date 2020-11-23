@@ -184,10 +184,10 @@ button:focus {
     color: #791f06;
 }
 
-.login-create {
+.login-create, .login-enter {
     margin-top: 15px;
 }
 
-.login-create > a {
+.login-create > a, .login-enter > a {
     text-decoration: underline;
 }

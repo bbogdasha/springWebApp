@@ -1,0 +1,87 @@
+@import url(https://fonts.googleapis.com/css?family=Lora);
+body {
+    margin:0;
+}
+a, h1 {
+    text-decoration: none;
+    font-family: 'Lora', serif;
+    cursor: pointer;
+    margin: 0;
+}
+.content {
+    max-width: 1140px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.body-part {
+    margin-top: 60px;
+    margin-bottom: 50px;
+}
+.body-part-container {
+    background: #f7e8e3;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    border: 1px solid #946659;
+    min-height: 650px;
+    box-shadow: 0px 10px 40px 20px rgba(0, 0, 0, 0.2);
+}
+.body-part-block {
+    width: 100%;
+    display: grid;
+}
+.body-part-block-img {
+    grid-row: 1;
+    height: 100%;
+}
+.body-part-block-img > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.body-part-block-info {
+    padding: 2% 5%;
+    text-align: center;
+}
+.body-part-block-buttons {
+    display: flex;
+    width: 60%;
+    margin: auto;
+}
+.body-part-block-but {
+    width: 50%;
+}
+.body-part-block-but:first-child {
+    margin-right: 20px;
+}
+.button {
+    width: 100%;
+    cursor: pointer;
+    background: none;
+    border: 1px solid rgba(0, 0, 0, 0.65);
+    border-radius: 25px;
+    color: rgba(0, 0, 0, 0.65);
+    -webkit-align-self: flex-end;
+    -ms-flex-item-align: end;
+    align-self: flex-end;
+    font-size: 19px;
+    font-size: 1.2rem;
+    font-family: roboto;
+    font-weight: 300;
+    line-height: 2.5em;
+    margin: 20px 0 0 0;
+    -webkit-transition: all .2s ease;
+    transition: all .2s ease;
+}
+
+.button:hover {
+    background: rgba(0, 0, 0, 0.15);
+    color: #fff;
+    -webkit-transition: all .2s ease;
+    transition: all .2s ease;
+}
+
+.button > a:hover {
+    color: #fff;
+}
