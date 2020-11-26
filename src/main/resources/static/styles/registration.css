@@ -14,7 +14,6 @@ a, p {
     text-decoration: none;
     color: rgba(0, 0, 0, 0.65);
 }
-
 input {
     font-family: 'Lora', serif;
 }
@@ -88,12 +87,10 @@ input {
     width: 100%;
     position: relative;
 }
-
 .logo img {
     max-width: 221px;
     display: inline-block;
 }
-
 .title {
     font-weight: 200;
     margin-top: 30px;
@@ -103,7 +100,6 @@ input {
     letter-spacing: 0px;
     letter-spacing: 0.05rem;
 }
-
 .text {
     margin: 10px 0;
     text-align: center;
@@ -111,28 +107,25 @@ input {
     letter-spacing: 0px;
     letter-spacing: 0.02rem;
 }
-
 input, button {
     border: none;
     width: 100%;
 }
-
 button:focus {
     outline: none;
 }
-
+.button-reg:focus {
+    outline: 0;
+}
 ::-webkit-input-placeholder {
     color: rgba(0, 0, 0, 0.65);
 }
-
 ::-webkit-input-placeholder .input-line:focus +::input-placeholder {
     color: #fff;
 }
-
 .input-fields {
     margin-top: 25px;
 }
-
 .input-line {
     outline: none;
     background: none;
@@ -156,9 +149,9 @@ button:focus {
     -webkit-align-self: flex-end;
     -ms-flex-item-align: end;
     align-self: flex-end;
+    font-family: 'Lora', serif;
     font-size: 19px;
     font-size: 1.2rem;
-    font-family: roboto;
     font-weight: 300;
     line-height: 2.5em;
     margin: 20px 0 0 0;

@@ -1,7 +1,7 @@
 package com.bogdan.web;
 
-import com.bogdan.domain.Role;
-import com.bogdan.domain.User;
+import com.bogdan.model.Role;
+import com.bogdan.model.User;
 import com.bogdan.repo.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -15,7 +15,7 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 @Controller
-@PreAuthorize("hasAuthority('ADMIN')")
+//@PreAuthorize("hasAuthority('ADMIN')")
 public class UserController {
 
     @Autowired
@@ -24,35 +24,36 @@ public class UserController {
     @GetMapping("/user")
     public String userList(Model model) {
         model.addAttribute("users", userRepo.findAllByOrderByIdAsc());
-        return "userRoleList";
+        return "userList";
     }
 
     @GetMapping("/user/{id}")
     public String userEdit(@PathVariable("id") Long id, Model model) {
         model.addAttribute("user", userRepo.getUserById(id));
         model.addAttribute("roles", Role.values());
-        return "userEditPage";
+        return "userEdit";
     }
 
     @PostMapping("/user")
     public String userEditSave(@RequestParam String username,
-                               @RequestParam("userId") User user,
+                               @RequestParam("userId") long userId,
                                @RequestParam Map<String, String> form) {
-        user.setUsername(username);
+        User upUser = userRepo.getUserById(userId);
+        upUser.setUsername(username);
 
         Set<String> roles = Arrays.stream(Role.values())
                 .map(Role::name)
                 .collect(Collectors.toSet());
 
-        user.getRoles().clear();
+        upUser.getRoles().clear();
 
         for (String key : form.keySet()) {
             if (roles.contains(key)) {
-                user.getRoles().add(Role.valueOf(key));
+                upUser.getRoles().add(Role.valueOf(key));
             }
         }
 
-        userRepo.save(user);
+        userRepo.save(upUser);
         return "redirect:/user";
     }
 }

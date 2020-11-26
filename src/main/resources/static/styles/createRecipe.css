@@ -1,0 +1,186 @@
+@import url(https://fonts.googleapis.com/css?family=Lora);
+body {
+    margin:0;
+}
+body, html, a, p, textarea, label  {
+    text-decoration: none;
+    font-family: 'Lora', serif;
+    margin: 0;
+    height: 100%;
+}
+.content {
+    max-width: 1140px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+
+.body-part {
+    margin-top: 30px;
+    margin-bottom: 50px;
+}
+.body-part-title {
+    margin: 0 0 20px 0;
+}
+.body-part-title p {
+    font-size: 28px;
+    cursor: default;
+}
+.body-part-blocks {
+    display: flex;
+    background: #f7e8e3;
+    border: 1px solid #946659;
+    min-height: 1000px;
+    box-shadow: 0px 10px 40px 20px rgba(0, 0, 0, 0.2)
+}
+.image {
+    width: 90%;
+    height: 1000px;
+    background: linear-gradient(to right, rgba(255,255,255,0), #f7e8e3), url("/static/img/create.jpg");
+}
+.form {
+    width: 100%;
+    padding: 3% 3%;
+}
+.form-title {
+    font-size: 24px;
+    cursor: text;
+    text-align: center;
+    margin-bottom: 16px;
+}
+
+button:focus {
+    outline: none;
+}
+::-webkit-input-placeholder {
+    color: rgba(0, 0, 0, 0.65);
+}
+::-webkit-input-placeholder .input-line:focus +::input-placeholder {
+    color: #fff;
+}
+.input-line {
+    border: none;
+    outline: none;
+    background: none;
+    line-height: 2.4em;
+    font-weight: 300;
+    letter-spacing: 0.04rem;
+    font-size: 1.2rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.65);
+    -webkit-transition: all .2s ease;
+    transition: all .2s ease;
+}
+.input-field-block {
+    margin-bottom: 10px;
+    margin-top: 30px;
+    display: block;
+}
+.input-field-block > input {
+    font-family: 'Lora', serif;
+}
+.input-field-block > textarea {
+    width: 100%;
+    height: 150px;
+    line-height: 2em;
+    font-size: 1rem;
+    margin-top: 10px;
+}
+.cook-name {
+    display: initial;
+    font-family: 'Lora', serif;
+}
+.cook-time {
+    float: right;
+    width: 38%;
+}
+.cook-time > input {
+    margin: 0 0 0 10px;
+    height: 49px;
+}
+.i {
+    background: url("/static/img/icon.png");
+    width:16px;
+    height:16px;
+    display:inline-block;
+    vertical-align:bottom;
+    margin-right: 5px;
+}
+textarea {
+    resize: none;
+}
+.trio {
+    display: flex;
+}
+.trio > input {
+    width: 50px;
+}
+.trio > label {
+    line-height: 49px;
+}
+.trio > label:not(:last-child) {
+    margin-right: auto;
+}
+.cook-email {
+    width: 45%;
+}
+.cook-file-button {
+    width: 50%;
+}
+.buttons {
+    display: flex;
+}
+.cook-button, .cook-back {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    width: 25%;
+    cursor: pointer;
+    border: 1px solid rgba(0, 0, 0, 0.65);
+    border-radius: 25px;
+    color: rgba(0, 0, 0, 0.65);
+    -webkit-align-self: flex-end;
+    -ms-flex-item-align: end;
+    align-self: flex-end;
+    font-size: 1.2rem;
+    font-weight: 300;
+    line-height: 2.5em;
+    -webkit-transition: all .2s ease;
+    transition: all .2s ease;
+}
+.cook-button > input {
+    outline: none;
+    background: none;
+    border: none;
+    text-decoration: none;
+    cursor: pointer;
+    color: rgba(0, 0, 0, 0.65);
+    font-family: 'Lora', serif;
+    margin: 0;
+    height: 100%;
+    font-size: 1.2rem;
+    font-weight: 300;
+    line-height: 2.5em;
+}
+.cook-back > a {
+    color: rgba(0, 0, 0, 0.65);
+}
+.cook-back:hover,  .cook-button:hover {
+    background: rgba(0, 0, 0, 0.15);
+    color: #fff;
+    -webkit-transition: all .2s ease;
+    transition: all .2s ease;
+}
+.cook-back:hover > a, .cook-button:hover > input {
+    color: #fff;
+}
+.file {
+    display: flex;
+}
+.cook-file {
+    line-height: 49px;
+    text-align: center;
+}
+.cook-error {
+    width: 100%;
+    height: 22px;
+}

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User edit (ADMIN)</title>
+    <link rel="stylesheet" href="/static/styles/header.css">
+    <link rel="stylesheet" href="/static/styles/footer.css">
+    <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="/static/js/script.js"></script>
+</head>
+<body>
+    <div th:replace="/macros/header.html"></div>
+    <h3>User editor page: </h3>
+    <form th:action="@{/user}" method="post" th:object="${user}">
+        <input type="hidden" th:value="${user.id}" name="userId">
+        <input type="text" th:value="${user.username}" name="username">
+        <div th:each="role : ${roles}">
+            <input type="checkbox" th:text="${role}" th:checked="${user.getRoles().contains(role)}" th:name="${role}">
+        </div>
+    <button type="submit">Save</button>
+    </form></br>
+    <a href="/user">User role list</a>
+    <div th:replace="/macros/footer.html"></div>
+</body>
+</html>

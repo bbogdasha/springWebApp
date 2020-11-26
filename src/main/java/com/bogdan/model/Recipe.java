@@ -1,6 +1,12 @@
-package com.bogdan.domain;
+package com.bogdan.model;
+
+import org.hibernate.validator.constraints.Range;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
+import java.time.LocalTime;
 
 @Entity
 @Table(name = "recipes", schema = "spring_recipe")
@@ -11,25 +17,43 @@ public class Recipe {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
 
+    @Size(min = 2, max = 30)
+    @Pattern(regexp = "[A-Z][a-z]+", message = "Must start with a capital letter followed by one or more lowercase letters!")
+    @Column(name = "name", nullable = false)
     private String name;
-    private String time;
+
+    @DateTimeFormat(iso = DateTimeFormat.ISO.TIME)
+    private LocalTime time;
+
+    @Size(min = 5, max = 300, message = "This field must contain at least one ingredient!")
     private String ingredients;
+
+    @Size(min = 5, max = 300, message = "This field should contain cooking steps (instructions)!")
     private String steps;
+
+    @Range(min = 1, max = 999)
     private int kcal;
+
+    @Range(min = 1, max = 99)
     private int fat;
+
+    @Range(min = 1, max = 99)
     private int sugars;
+
+    @Pattern(regexp = "[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}", message = "Must be a valid e-mail address!")
+    @Column(name = "email", nullable = false, unique = true)
     private String email;
+
+    private String filename;
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "user_id")
     private User author;
 
-    private String filename;
-
     public Recipe() {
     }
 
-    public Recipe(String name, String time, String ingredients, String steps,
+    public Recipe(String name, LocalTime time, String ingredients, String steps,
                   int kcal, int fat, int sugars, String email, User author) {
         this.name = name;
         this.time = time;
@@ -62,11 +86,11 @@ public class Recipe {
         this.name = name;
     }
 
-    public String getTime() {
+    public LocalTime getTime() {
         return time;
     }
 
-    public void setTime(String time) {
+    public void setTime(LocalTime time) {
         this.time = time;
     }
 

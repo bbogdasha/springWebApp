@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Users list</title>
+    <link rel="stylesheet" href="/static/styles/header.css">
+    <link rel="stylesheet" href="/static/styles/footer.css">
+    <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="/static/js/script.js"></script>
+</head>
+<body>
+    <div th:replace="/macros/header.html"></div>
+    <h3>List of users:</h3>
+    <table>
+        <tr>
+            <th>#</th>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Role</th>
+            <th></th>
+        </tr>
+        <tr th:each="user, iStat: ${users}">
+            <th scope="row" th:text="${iStat.index + 1}"/>
+            <td th:text="${user.id}"></td>
+            <td th:text="${user.username}"></td>
+            <td th:each="role : ${user.roles}" th:text="${role}"></td>
+            <td><a th:href="@{|/user/${user.id}|}">Edit</a></td>
+        </tr>
+    </table></br>
+    <a href="/recipes">Recipes list</a>
+    <div th:replace="/macros/footer.html"></div>
+</body>
+</html>

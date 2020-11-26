@@ -1,7 +1,7 @@
 package com.bogdan.web;
 
-import com.bogdan.domain.Role;
-import com.bogdan.domain.User;
+import com.bogdan.model.Role;
+import com.bogdan.model.User;
 import com.bogdan.repo.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -30,10 +30,10 @@ public class RegistrationController {
     public String registrationUserPage(Model model,
                                        @Validated @ModelAttribute("user") User user,
                                        BindingResult result) {
-        User userFromDb = userRepo.findByUsername(user.getUsername());
         if (result.hasErrors()) {
             return "registration";
         }
+        User userFromDb = userRepo.findByUsername(user.getUsername());
         if (userFromDb != null) {
             model.addAttribute("message", "User with this name already exists!");
             return "registration";

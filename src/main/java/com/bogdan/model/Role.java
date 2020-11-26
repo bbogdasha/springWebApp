@@ -1,4 +1,4 @@
-package com.bogdan.domain;
+package com.bogdan.model;
 
 import org.springframework.security.core.GrantedAuthority;
 

@@ -1,6 +1,6 @@
 package com.bogdan.repo;
 
-import com.bogdan.domain.User;
+import com.bogdan.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

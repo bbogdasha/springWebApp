@@ -1,4 +1,4 @@
-package com.bogdan.domain;
+package com.bogdan.model;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -21,8 +21,8 @@ public class User implements UserDetails {
     @Column(name = "username", nullable = false)
     private String username;
 
-    @Pattern(regexp = "(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{6,}",
-            message = "Must be minimum 6 characters, at least one letter and one number")
+    @Pattern(regexp = "^(?=.*[0-9])(?=.*[a-z])(?=\\S+$).{8,}$",
+            message = "Must be minimum 8 characters, at least one letter and one number")
     @Column(name = "password", nullable = false)
     private String password;
 
