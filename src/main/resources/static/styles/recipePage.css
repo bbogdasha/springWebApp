@@ -1,0 +1,114 @@
+@import url(https://fonts.googleapis.com/css?family=Lora);
+body {
+    margin:0;
+}
+a, p {
+    text-decoration: none;
+    font-family: 'Lora', serif;
+    margin: 0;
+    font-size: 18px;
+}
+.content {
+    max-width: 1140px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+
+.recipe-page {
+    margin-top: 30px;
+    margin-bottom: 50px;
+}
+.recipe-page-title {
+    margin: 0 0 20px 0;
+}
+.recipe-page-title > p {
+    font-size: 28px;
+    cursor: default;
+}
+.recipe-page-container {
+    background: #f7e8e3;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 3% 3%;
+    border: 1px solid #946659;
+    min-height: 700px;
+    box-shadow: 0px 10px 40px 20px rgba(0, 0, 0, 0.2)
+}
+.recipe-page-block {
+    width: 100%;
+    display: flex;
+}
+.recipe-img {
+    width: 50%;
+    height: 450px;
+    border: 1px solid #946659;
+}
+.recipe-img > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.recipe-info {
+    width: 50%;
+    margin-left: 3%;
+    font-family: 'Lora', serif;
+    font-size: 18px;
+}
+.name {
+    text-align: center;
+    font-size: 35px;
+    margin-bottom: 25px;
+    font-weight: 600;
+}
+.info {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 15px;
+    font-family: 'Lora', serif;
+}
+.info-all {
+    margin-left: 1em;
+    margin-bottom: 3em;
+}
+.div-info {
+    margin-bottom: 15px;
+    display: grid;
+    grid-template-columns: 8em 1em 3em auto;
+}
+.i {
+    background: url("/static/img/icon-time.png");
+    width: 24px;
+    height: 24px;
+    display: inline-block;
+    vertical-align: bottom;
+}
+.recipe-author {
+    margin-left: 1em;
+}
+.div-author {
+    margin-bottom: 15px;
+    display: grid;
+    grid-template-columns: 8em 1em auto;
+}
+.text {
+    margin-top: 3%;
+}
+.block-ingredients {
+    width: 30%;
+    margin-right: 3%;
+}
+.block-steps {
+    width: 70%;
+}
+.ingredients, .steps {
+    white-space: pre-line;
+    font-family: 'Lora', serif;
+    font-size: 18px;
+}
+.ingredients {
+
+}
+.steps {
+
+}

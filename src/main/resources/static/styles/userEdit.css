@@ -1,0 +1,127 @@
+@import url(https://fonts.googleapis.com/css?family=Lora);
+body {
+    margin:0;
+}
+a, p, label {
+    text-decoration: none;
+    font-family: 'Lora', serif;
+    margin: 0;
+    font-size: 18px;
+}
+.content {
+    max-width: 1140px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+
+.user-edit {
+    margin-top: 30px;
+    margin-bottom: 50px;
+}
+.edit-title {
+    margin: 0 0 20px 0;
+}
+.edit-title > p {
+    font-size: 28px;
+    cursor: default;
+}
+.window {
+    width: 400px;
+    margin: auto;
+}
+.edit-user-form {
+    height: 300px;
+    background: #f7e8e3;
+    justify-content: space-between;
+    border: 1px solid #946659;
+    box-shadow: 0px 10px 40px 20px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+}
+.edit-user-block > div > input, .checkbox {
+    font-family: 'Lora', serif;
+    font-size: 18px;
+}
+.edit-user-block > div {
+    line-height: 56px;
+}
+.edit-user-block {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    margin-bottom: 10px;
+}
+.id-color {
+    color: rgba(0, 0, 0, 0.5);
+}
+.checkbox-all {
+    margin-bottom: 10px;
+}
+.checkbox {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    margin: auto;
+    width: 100px;
+}
+.edit-button, .edit-back {
+    width: 150px;
+    cursor: pointer;
+    background: none;
+    border: 1px solid rgba(0, 0, 0, 0.65);
+    border-radius: 25px;
+    color: rgba(0, 0, 0, 0.65);
+    -ms-flex-item-align: end;
+    font-family: 'Lora', serif;
+    font-size: 1.2rem;
+    font-weight: 300;
+    line-height: 2.5em;
+    -webkit-transition: all .2s ease;
+    transition: all .2s ease;
+}
+.edit-button {
+    float: left;
+}
+.edit-back {
+    float: right;
+}
+.edit-back:hover,  .edit-button:hover {
+    background: rgba(0, 0, 0, 0.15);
+    color: #fff;
+    -webkit-transition: all .2s ease;
+    transition: all .2s ease;
+}
+.button-back > a:hover {
+    color: #fff;
+}
+input, button {
+    border: none;
+    width: 100%;
+}
+button:focus {
+    outline: none;
+}
+.edit-button:focus {
+    outline: 0;
+}
+::-webkit-input-placeholder {
+    color: rgba(0, 0, 0, 0.65);
+}
+::-webkit-input-placeholder .input-line:focus +::input-placeholder {
+    color: #fff;
+}
+.input-line {
+    outline: none;
+    background: none;
+    margin-bottom: 10px;
+    line-height: 2.4em;
+    font-weight: 300;
+    letter-spacing: 0px;
+    letter-spacing: 0.02rem;
+    font-size: 1.2rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.65);
+    -webkit-transition: all .2s ease;
+    transition: all .2s ease;
+}
+.warning {
+    width: 100%;
+    height: 70px;
+}

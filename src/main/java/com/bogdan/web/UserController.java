@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Arrays;
@@ -15,7 +17,7 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 @Controller
-//@PreAuthorize("hasAuthority('ADMIN')")
+@PreAuthorize("hasAuthority('ADMIN')")
 public class UserController {
 
     @Autowired
@@ -34,12 +36,11 @@ public class UserController {
         return "userEdit";
     }
 
-    @PostMapping("/user")
-    public String userEditSave(@RequestParam String username,
-                               @RequestParam("userId") long userId,
-                               @RequestParam Map<String, String> form) {
-        User upUser = userRepo.getUserById(userId);
-        upUser.setUsername(username);
+    @PostMapping("/user/{id}")
+    public String userEditSave(@PathVariable Long id, @RequestParam Map<String, String> form,
+                               @ModelAttribute("user") User user) {
+        User upUser = userRepo.getUserById(id);
+        upUser.setUsername(user.getUsername());
 
         Set<String> roles = Arrays.stream(Role.values())
                 .map(Role::name)
@@ -52,8 +53,14 @@ public class UserController {
                 upUser.getRoles().add(Role.valueOf(key));
             }
         }
-
         userRepo.save(upUser);
+        return "redirect:/user";
+    }
+
+    @GetMapping("/user/{id}/delete")
+    public String delete(@PathVariable("id") long id) {
+        User user = userRepo.getUserById(id);
+        userRepo.delete(user);
         return "redirect:/user";
     }
 }

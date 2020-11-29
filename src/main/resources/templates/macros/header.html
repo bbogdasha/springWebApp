@@ -30,7 +30,7 @@
                             <li><a th:href="@{/greeting}">Home</a></li>
                             <li><a th:href="@{/recipes}">Recipes</a></li>
                             <li><a th:href="@{/createRecipe}">Create new recipe</a></li>
-                            <li><a th:href="@{/user}">User list</a></li>
+                            <li sec:authorize="hasAuthority('ADMIN')"><a th:href="@{/user}">User list</a></li>
                         </ul>
                     </div>
                 </div>

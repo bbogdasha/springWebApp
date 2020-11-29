@@ -25,10 +25,12 @@ public class Recipe {
     @DateTimeFormat(iso = DateTimeFormat.ISO.TIME)
     private LocalTime time;
 
-    @Size(min = 5, max = 300, message = "This field must contain at least one ingredient!")
+    @Size(min = 5, max = 1000, message = "This field must contain at least one ingredient!")
+    @Column(columnDefinition = "text", length = 1024)
     private String ingredients;
 
-    @Size(min = 5, max = 300, message = "This field should contain cooking steps (instructions)!")
+    @Size(min = 5, max = 1000, message = "This field should contain cooking steps (instructions)!")
+    @Column(columnDefinition = "text", length = 1024)
     private String steps;
 
     @Range(min = 1, max = 999)

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Recipe Page</title>
+    <link rel="stylesheet" href="/static/styles/header.css">
+    <link rel="stylesheet" href="/static/styles/footer.css">
+    <link rel="stylesheet" href="/static/styles/recipePage.css">
+    <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="/static/js/script.js"></script>
+</head>
+<body>
+    <div th:replace="/macros/header.html"></div>
+    <div class="recipe-page content">
+        <div class="recipe-page-title"><p>Recipe Page</p></div>
+        <div class="recipe-page-container">
+            <div class="recipe-page-block">
+                <div class="recipe-img">
+                    <img th:src="@{|/img/${recipe.filename}|}"/>
+                </div>
+                <div class="recipe-info">
+                    <div class="name" th:text="${recipe.name}"></div>
+                    <div class="info">Information:</div>
+                    <div class="info-all">
+                        <div class="div-info"><p>Cooking time</p><p>-&nbsp;</p><b><div class="time" th:text="${recipe.time}"></div></b><span class="i"></span></div>
+                        <div class="div-info"><p>Calories</p><p>-&nbsp;</p><b><div class="kcal" th:text="${recipe.kcal}"></div></b>&nbsp;kcal / 100g</div>
+                        <div class="div-info"><p>Fat</p><p>-&nbsp;</p><b><div class="fat" th:text="${recipe.fat}"></div></b>&nbsp;%</div>
+                        <div class="div-info"><p>Sugars</p><p>-&nbsp;</p><b><div class="sugars" th:text="${recipe.sugars}"></div></b>&nbsp;sugars / 100g</div>
+                    </div>
+                    <div class="info">Author:</div>
+                    <div class="recipe-author">
+                        <div class="div-author"><p>Author's name</p><p>-&nbsp;</p><b><div th:text="${recipe.author.username}"></div></b></div>
+                        <div class="div-author"><p>Author's email</p><p>-&nbsp;</p><b><div th:text="${recipe.email}"></div></b></div>
+                    </div>
+                </div>
+            </div>
+            <div class="recipe-page-block text">
+                <div class="block-ingredients">
+                    <div class="info">Ingredients:</div>
+                    <div class="ingredients" th:text="${recipe.ingredients}"></div>
+                </div>
+                <div class="block-steps">
+                    <div class="info">Steps:</div>
+                    <div class="steps" th:text="${recipe.steps}"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div th:replace="/macros/footer.html"></div>
+</body>
+</html>

@@ -5,21 +5,37 @@
     <title>User edit (ADMIN)</title>
     <link rel="stylesheet" href="/static/styles/header.css">
     <link rel="stylesheet" href="/static/styles/footer.css">
+    <link rel="stylesheet" href="/static/styles/userEdit.css">
     <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
     <script src="/static/js/script.js"></script>
 </head>
 <body>
     <div th:replace="/macros/header.html"></div>
-    <h3>User editor page: </h3>
-    <form th:action="@{/user}" method="post" th:object="${user}">
-        <input type="hidden" th:value="${user.id}" name="userId">
-        <input type="text" th:value="${user.username}" name="username">
-        <div th:each="role : ${roles}">
-            <input type="checkbox" th:text="${role}" th:checked="${user.getRoles().contains(role)}" th:name="${role}">
+    <div class="user-edit content">
+        <div class="window">
+            <div class="edit-title"><p>User editor page</p></div>
+            <div class="edit-user-form">
+                <form th:action="@{|/user/${user.id}|}" method="post" th:object="${user}">
+                    <div class="edit-user-block">
+                        <div><label>Id user:</label></div>
+                        <div><input class="input-line id-color" type="number" th:value="${user.id}" name="userId" readonly></div>
+                    </div>
+                    <div class="edit-user-block">
+                        <div><label>Username:</label></div>
+                        <div><input class="input-line id-color" type="text" th:value="${user.username}" name="username" readonly></div>
+                    </div>
+                    <div>
+                        <div><label>Roles:</label></div>
+                        <div class="checkbox-all" th:each="role : ${roles}">
+                            <div class="checkbox"><input type="checkbox" th:text="${role}" th:checked="${user.getRoles().contains(role)}" th:name="${role}"></div>
+                        </div>
+                    </div>
+                    <div><input class="edit-button" type="submit" value="Save"></div>
+                </form>
+                <div><a th:href="@{/user}"><button class="edit-back">Back</button></a></div>
+            </div>
         </div>
-    <button type="submit">Save</button>
-    </form></br>
-    <a href="/user">User role list</a>
+    </div>
     <div th:replace="/macros/footer.html"></div>
 </body>
 </html>

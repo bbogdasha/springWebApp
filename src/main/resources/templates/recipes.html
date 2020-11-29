@@ -16,7 +16,7 @@
             <div class="body-part-container">
                 <div class="box" th:each="recipe : ${recipes}">
                     <div class="box-picture">
-                        <a th:if= "${recipe.filename != null}" th:href="@{/user}">
+                        <a th:if= "${recipe.filename != null}" th:href="@{|/recipe/${recipe.id}|}">
                             <img th:src="@{|/img/${recipe.filename}|}"/>
                         </a>
                     </div>
