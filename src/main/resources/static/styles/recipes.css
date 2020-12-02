@@ -96,3 +96,36 @@ a, p {
 .box:hover::after {
     opacity: 1;
 }
+.left {
+    float: left;
+}
+.right {
+    float: right;
+}
+.title-filter {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+.title-filter, .titleF {
+    font-family: 'Lora', serif;
+}
+.titleF {
+    display: flex;
+    margin-bottom: 8px;
+}
+.titleF > p {
+    font-size: 18px;
+    font-weight: 600;
+    margin-right: 10px;
+}
+.radio-blocks {
+    float: left;
+}
+.radio-blocks > div {
+    margin-bottom: 8px;
+}
+.filter-button {
+    float: right;
+    width: 5em;
+}

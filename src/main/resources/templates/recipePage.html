@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Recipe Page</title>
+    <link rel="icon" href="/static/img/icon-page.png">
     <link rel="stylesheet" href="/static/styles/header.css">
     <link rel="stylesheet" href="/static/styles/footer.css">
     <link rel="stylesheet" href="/static/styles/recipePage.css">
@@ -16,7 +17,8 @@
         <div class="recipe-page-container">
             <div class="recipe-page-block">
                 <div class="recipe-img">
-                    <img th:src="@{|/img/${recipe.filename}|}"/>
+                    <img th:if="${recipe.filename != null}" th:src="@{|/img/${recipe.filename}|}"/>
+                    <img th:unless="${recipe.filename != null}" src="/static/img/def.jpg"/>
                 </div>
                 <div class="recipe-info">
                     <div class="name" th:text="${recipe.name}"></div>

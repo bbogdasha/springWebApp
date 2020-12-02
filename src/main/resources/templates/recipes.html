@@ -1,8 +1,10 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<html xmlns:th="http://www.thymeleaf.org" lang="en"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <head>
     <meta charset="UTF-8">
     <title>Recipe List</title>
+    <link rel="icon" href="/static/img/icon-page.png">
     <link rel="stylesheet" href="/static/styles/header.css">
     <link rel="stylesheet" href="/static/styles/footer.css">
     <link rel="stylesheet" href="/static/styles/recipes.css">
@@ -12,12 +14,28 @@
 <body>
     <div th:replace="/macros/header.html"></div>
         <div class="body-part content">
-            <div class="body-part-title"><p>Recipes list</p></div>
+            <div class="title-filter">
+                <div class="body-part-title"><p>Recipes list</p></div>
+                <div class="filter">
+                    <form method="post" th:action="@{/filter}">
+                        <div class="titleF"><p>Filter:</p><input type="text" name="filter" autocomplete="off"></div>
+                        <div class="radio-blocks">
+                            <div><input type="radio" name="type" value="name" checked>Name of dish</div>
+                            <div><input type="radio" name="type" value="username">Username</div>
+                        </div>
+                        <button class="filter-button" type="submit">Find</button>
+                    </form>
+                    <a th:href="@{/recipes}"><button style="margin-top: 8px;" class="filter-button">Show all</button></a>
+                </div>
+            </div>
             <div class="body-part-container">
                 <div class="box" th:each="recipe : ${recipes}">
                     <div class="box-picture">
-                        <a th:if= "${recipe.filename != null}" th:href="@{|/recipe/${recipe.id}|}">
+                        <a th:if="${recipe.filename != null}" th:href="@{|/recipe/${recipe.id}|}">
                             <img th:src="@{|/img/${recipe.filename}|}"/>
+                        </a>
+                        <a th:unless="${recipe.filename != null}" th:href="@{|/recipe/${recipe.id}|}">
+                            <img src="/static/img/def.jpg"/>
                         </a>
                     </div>
                     <div class="box-info">
@@ -25,9 +43,10 @@
                         <div class="box-info-time">
                             <img src="/static/img/time.png"><p>-&nbsp;</p><span th:text="${recipe.time}"></span>
                         </div>
-                        <div class="box-info-author">
+                        <div class="box-info-author left">
                             <img src="/static/img/author.png"><p>-&nbsp;</p><span th:text="${recipe.authorName}"></span>
                         </div>
+                        <div sec:authorize="hasAuthority('ADMIN')" class="right"><a th:href="@{|/recipe/delete/${recipe.id}|}"><img src="/static/img/trash.png"></a></div>
                     </div>
                 </div>
             </div>

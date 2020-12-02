@@ -13,7 +13,7 @@
                             <form th:action="@{/logout}" sec:authorize="isAuthenticated()" method="post"><input class="logout" type="submit" value="Log out"/></form>
                             <span>|</span>
                             <a th:href="@{/registration}" sec:authorize="isAnonymous()">Register</a>
-                            <a th:href="@{/#}" sec:authorize="isAuthenticated()" sec:authentication="name"></a>
+                            <a th:href="@{|/recipesUser/${#authentication.name}|}" sec:authorize="isAuthenticated()" sec:authentication="name"></a>
                         </div>
                     </div>
                 </div>

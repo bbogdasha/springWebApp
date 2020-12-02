@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Error Page</title>
+    <link rel="icon" href="/static/img/icon-page.png">
+    <link rel="stylesheet" href="/static/styles/header.css">
+    <link rel="stylesheet" href="/static/styles/footer.css">
+    <link rel="stylesheet" href="/static/styles/error.css">
+</head>
+<body>
+    <div th:replace="/macros/header.html"></div>
+    <div class="error error-content">
+        <div class="error-info">
+            <div class="code"><p th:text="${code}"></p></div>
+            <div class="info"><p>Oops, Something went wrong!</p><p th:text="${message}"></p></div>
+            <form><input class="error-button" type="button" value="Go back!" onclick="history.back()"></form>
+        </div>
+    </div>
+    <div th:replace="/macros/footer.html"></div>
+</body>
+</html>

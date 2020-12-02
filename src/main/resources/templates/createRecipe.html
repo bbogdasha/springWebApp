@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Create Recipe</title>
+    <link rel="icon" href="/static/img/icon-page.png">
     <link rel="stylesheet" href="/static/styles/header.css">
     <link rel="stylesheet" href="/static/styles/footer.css">
     <link rel="stylesheet" href="/static/styles/createRecipe.css">
@@ -21,16 +22,16 @@
                     <form th:action="@{/createRecipe}" th:object="${recipe}" enctype="multipart/form-data" method="post">
                         <div class="input-field">
                             <div class="input-field-block">
-                                <input class="input-line cook-name" type="text" th:field="*{name}" placeholder="Name of dish" autocomplete="off" required />
+                                <input class="input-line cook-name" type="text" th:field="*{name}" placeholder="Name of dish" autocomplete="off" required /><b>*</b>
                                 <div class="cook-time"><label>Cooking time: </label>
-                                <input class="input-line" type="time" th:field="*{time}" autocomplete="off" required /></div>
+                                <input class="input-line" type="time" th:field="*{time}" autocomplete="off" required /><b>*</b></div>
                             </div>
                             <div class="cook-error">
                                 <span th:if="${#fields.hasErrors('name')}" class="i"></span><small th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></small>
                             </div>
 
                             <div class="input-field-block">
-                                <label>Ingredients: </label>
+                                <label>Ingredients: </label><b>*</b>
                                 <textarea class="input-line" th:field="*{ingredients}" placeholder="Write down the ingredients you need (max 1000 symbols)" autocomplete="off" th:maxlength="1000" required></textarea>
                             </div>
                             <div class="cook-error">
@@ -38,7 +39,7 @@
                             </div>
 
                             <div class="input-field-block">
-                                <label>Steps cook: </label>
+                                <label>Steps cook: </label><b>*</b>
                                 <textarea class="input-line" th:field="*{steps}" placeholder="Describe the cooking process (max 1000 symbols)" autocomplete="off" th:maxlength="1000" required></textarea>
                             </div>
                             <div class="cook-error">
@@ -46,15 +47,15 @@
                             </div>
 
                             <div class="input-field-block trio">
-                                <input onchange="changeHandler(this, 999)" class="input-line" type="number" name="kcal" placeholder="000" autocomplete="off" maxlength="4" required /><label>kcal / 100g</label>
-                                <input onchange="changeHandler(this, 99)" class="input-line" type="number" name="fat" placeholder="00" autocomplete="off" maxlength="3" required /><label>% (fat)</label>
-                                <input onchange="changeHandler(this, 99)" class="input-line" type="number" name="sugars" placeholder="00" autocomplete="off" maxlength="3" required /><label>sugar / 100g</label>
+                                <input onchange="changeHandler(this, 999)" class="input-line" type="number" name="kcal" placeholder="000" autocomplete="off" maxlength="4" required /><label>kcal / 100g <b>*</b></label>
+                                <input onchange="changeHandler(this, 99)" class="input-line" type="number" name="fat" placeholder="00" autocomplete="off" maxlength="3" required /><label>% (fat) <b>*</b></label>
+                                <input onchange="changeHandler(this, 99)" class="input-line" type="number" name="sugars" placeholder="00" autocomplete="off" maxlength="3" required /><label>sugar / 100g <b>*</b></label>
                             </div>
 
                             <div class="input-field-block file">
-                                <input class="input-line cook-email" type="email" th:field="*{email}" placeholder="Write your email" autocomplete="off" required>
+                                <input class="input-line cook-email" type="email" th:field="*{email}" placeholder="Write your email" autocomplete="off" required><b>*</b>
                                 <div class="cook-file"><label>Photo dish: </label>
-                                <input class="cook-file-button" type="file" name="file" required></div>
+                                <input class="cook-file-button" type="file" name="file"></div>
                             </div>
                             <div class="cook-error">
                                 <span th:if="${#fields.hasErrors('email')}" class="i"></span><small th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></small>

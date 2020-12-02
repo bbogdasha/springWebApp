@@ -1,5 +1,6 @@
 package com.bogdan.web;
 
+import com.bogdan.model.Recipe;
 import com.bogdan.model.Role;
 import com.bogdan.model.User;
 import com.bogdan.repo.UserRepo;
@@ -7,12 +8,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import javax.persistence.EntityNotFoundException;
 import java.util.Arrays;
 import java.util.Map;
+import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -31,6 +32,10 @@ public class UserController {
 
     @GetMapping("/user/{id}")
     public String userEdit(@PathVariable("id") Long id, Model model) {
+        Optional<User> optional = userRepo.findById(id);
+        if (!optional.isPresent()) {
+            throw new EntityNotFoundException("User with id " + id + " not found");
+        }
         model.addAttribute("user", userRepo.getUserById(id));
         model.addAttribute("roles", Role.values());
         return "userEdit";
@@ -39,6 +44,10 @@ public class UserController {
     @PostMapping("/user/{id}")
     public String userEditSave(@PathVariable Long id, @RequestParam Map<String, String> form,
                                @ModelAttribute("user") User user) {
+        Optional<User> optional = userRepo.findById(id);
+        if (!optional.isPresent()) {
+            throw new EntityNotFoundException("User with id " + id + " not found");
+        }
         User upUser = userRepo.getUserById(id);
         upUser.setUsername(user.getUsername());
 
@@ -58,7 +67,11 @@ public class UserController {
     }
 
     @GetMapping("/user/{id}/delete")
-    public String delete(@PathVariable("id") long id) {
+    public String delete(@PathVariable("id") Long id) {
+        Optional<User> optional = userRepo.findById(id);
+        if (!optional.isPresent()) {
+            throw new EntityNotFoundException("User with id " + id + " not found");
+        }
         User user = userRepo.getUserById(id);
         userRepo.delete(user);
         return "redirect:/user";
