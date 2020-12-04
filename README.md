@@ -42,6 +42,7 @@ roles of each user (user_role). For convenience, the result of the work is demon
 ### Result
 
 **1. Visitor** 
+
 The video shows the functions and capabilities of the visitor: viewing the main page, a list of recipes and a recipe page; filter by recipe name (Burger) or username (Bob); the visitor, when clicking on the recipe creation, redirects to the authorization page.
 
 **Video result №1 (click on the picture to see the result on YouTube or copy link: https://youtu.be/3gAx6448cB0):**
@@ -52,7 +53,8 @@ The video shows the functions and capabilities of the visitor: viewing the main 
 
 ---
 
-**2. User** 
+**2. User**
+
 The visitor can create an account on the site. The registration process checks the correctness of the entered data:
 - [x] Must start with a capital letter followed by one or more lowercase letters.
 - [x] Must be minimum 8 characters, at least one letter and one number.
@@ -70,6 +72,7 @@ The user has his own page, where all his recipes are displayed, where the user c
 ---
 
 **3. Admin**
+
 Before logging into the admin, the user tries to enter the list of all users, and receives a page with an error 403 - no access, with a small description.
 
 After logging in as an administrator, new opportunities appear: 
@@ -86,6 +89,7 @@ After logging in as an administrator, new opportunities appear:
 ---
 
 **4. Password**
+
 Passwords are stored encrypted in the database:
 
 ![screenshot](https://github.com/bbogdasha/springWebApp/blob/master/screenshots/screen1.jpg)
