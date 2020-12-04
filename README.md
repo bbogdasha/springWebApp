@@ -40,3 +40,7 @@ roles of each user (user_role).
 ### Result
 
 **1.** 
+The video shows the functions and capabilities of the visitor: viewing the main page, a list of recipes and a recipe page; authorization is required to create your own recipe.
+
+Video result:
+[![Video](https://github.com/bbogdasha/springWebApp/blob/master/screenshots/YouTube.jpg)](https://youtu.be/3gAx6448cB0)
